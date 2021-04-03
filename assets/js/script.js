@@ -2,7 +2,6 @@ $(document).ready(function() {
 
     var today = moment();
     var currentHour;
-    var savedTasks = [];
 
     // Displays the current date in the header.
     $("#currentDay").text(today.format("dddd, MMM Do"));
@@ -32,30 +31,22 @@ $(document).ready(function() {
     // Runs the getHour function once every second to dynamically update the page.
     setInterval(getHour, 1000);
 
-    // 
+    // Saves the written task in the section next to the clicked button.
     $(".saveBtn").on("click", function() {
         console.log("click");
         var textValue = $(this).siblings(".description").val();
         var textTime = $(this).parent().attr("id");
-        console.log(textValue);
-        console.log(textTime);
         localStorage.setItem(textTime, textValue);
-
-        // var saveObject = {
-        //     Hour: textTime,
-        //     Task: textValue
-        // }
-
-        // localStorage.setItem("Schedule", JSON.stringify(saveObject));
-
-
-        // $(".description").each(function(index) {
-        //     console.log(index + 1 + ": " + $(this).val())
-        // })
-
-
     })
 
+    // Loads all saved tasks by looping through each hour and then prints them on the page.
+    var loadSavedItems = function() {
+        for (i = 9; i < 18; i++) {
+             var textTime = localStorage.getItem("hour-" + i + "");
+             $("#hour-" + i + "").children().eq(1).val(textTime);
+        }
+    }
+    loadSavedItems();
 
 
 
