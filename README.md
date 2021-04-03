@@ -10,4 +10,5 @@ https://keddie024.github.io/work-day-scheduler/
 
 ## Images of Application
 
-To be added
+![Sample with no tasks](./assets/images/sample.png)
+![Sample with tasks](./assets/images/sample2.png)

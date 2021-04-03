@@ -48,17 +48,4 @@ $(document).ready(function() {
     }
     loadSavedItems();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
